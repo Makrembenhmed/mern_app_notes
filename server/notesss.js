@@ -10,4 +10,5 @@
     "start": "nodemon server.js" */
 // "type": "module",
 
-
+// creation dossier config puis config.env
+//npm i mornan
