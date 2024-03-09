@@ -2,6 +2,7 @@ import  Express  from "express";
 import morgan from "morgan";
 import dotenv from "dotenv"
 import routes from "./routes/noutes.js"
+import route from "./routes/users.js";
 import {connectDB} from "./Config/db.js"
 
 dotenv.config({
@@ -15,6 +16,7 @@ app.use(Express.json())
 app.use(morgan("dev"))
 
 app.use("/api/v1/notes", routes)
+app.use("/api/v1/users", route)
 
 
 app.listen(8000, () => {

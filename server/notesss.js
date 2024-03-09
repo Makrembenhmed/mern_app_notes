@@ -12,3 +12,8 @@
 
 // creation dossier config puis config.env
 //npm i mornan
+
+
+// npm i bcrypt 
+// npm i validator 
+// npm i jsonwebtoken

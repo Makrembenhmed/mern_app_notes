@@ -42,7 +42,7 @@ export const createNote = async (req, res) => {
   try {
     const note = await Note.create({
       ...req.body,
-      userId,
+      userId:userId,
     });
     res.status(201).json({
       success: true,

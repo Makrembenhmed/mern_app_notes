@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
 const NoteSchema = new mongoose.Schema({
+
   userId: {
     type: String,
-    required: [true, "Please provide a user id"],
+    required: [false, "Please provide a user id"],
   },
   title: {
     type: String,
