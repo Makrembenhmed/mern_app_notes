@@ -8,12 +8,16 @@ export const AuthProvider =({children})=>{
 
     const [user,setUser]=useState(localStorage.getItem("token") || null);
 
-    
+    const[email , setEmail]=useState(localStorage.getItem("email") ||'')
     useEffect(() => {
     const token = localStorage.getItem("token");
-
+    const storedEmail = localStorage.getItem("email");
     if (token) {
     setUser(token);
+   
+    if (storedEmail) {
+        setEmail(storedEmail);}
+    
     }
 }, []);
 
@@ -35,6 +39,8 @@ export const AuthProvider =({children})=>{
         
         if(data.success){
             setUser(data.token)
+            setEmail(data.email)
+            localStorage.setItem("email", data.email);
             // save to local storage
         localStorage.setItem("token", data.token);
             toast.success("user loged with successfully")
@@ -61,8 +67,11 @@ export const AuthProvider =({children})=>{
         
         if(data.success){
             setUser(data.token)
+            setEmail(data.email)
             // save to local storage
         localStorage.setItem("token", data.token);
+        
+        localStorage.setItem("email", data.email);
             toast.success("user registred with successfully")
         }
         if(!data.success){
@@ -75,16 +84,21 @@ export const AuthProvider =({children})=>{
     const logOutUser =async()=>{
 
         setUser(null);
+        setEmail('')
     localStorage.removeItem("token");
     toast.success("Logout successful");
 
     }
     const contextData = {
         user,
+        email,
         loginUser,
         registerUser,
-        logOutUser
+        logOutUser,
+     
     }
+    
+
     
     return (
         <AuthContext.Provider value={contextData}>
@@ -93,6 +107,7 @@ export const AuthProvider =({children})=>{
 
     )
 }
+
 
 export const  useAuth =()=> useContext(AuthContext);
 export default AuthContext

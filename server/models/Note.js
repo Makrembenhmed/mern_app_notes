@@ -4,7 +4,7 @@ const NoteSchema = new mongoose.Schema({
 
   userId: {
     type: String,
-    required: [false, "Please provide a user id"],
+    required: [true, "Please provide a user id"],
   },
   title: {
     type: String,

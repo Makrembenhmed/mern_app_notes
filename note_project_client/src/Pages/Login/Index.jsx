@@ -14,6 +14,7 @@ const Login = () => {
   };
 
   return (
+    <div className="formlogin">
     <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
       <h1 className="text-3xl text-center font-bold text-blue-500">Login</h1>
       <form
@@ -40,6 +41,7 @@ const Login = () => {
           Login
         </button>
       </form>
+    </div>
     </div>
   );
 };

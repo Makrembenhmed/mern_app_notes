@@ -58,7 +58,7 @@ const Notes = () => {
     if (loading) return <h1>Loading...</h1>;
   
     return (
-      <div className="container py-8 flex flex-col gap-4">
+      <div className=" py-8 flex flex-col gap-4">
         {notes.length === 0 && (
           <h1 className="text-2xl  font-bold">No notes found</h1>
         )}
